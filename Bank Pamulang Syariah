@@ -81,16 +81,16 @@ int main()
     		            cout << "MASUKAN NOMOR GOPAY\t: "; cin >> nama;
     		            cout << "MASUKAN NOMINAL TOPUP\t: "; cin >> gopay;
     		            cout << "==================================================\n";
-                        cout << "TOP UP SALDO GOPAY KE TUJUAN " << nama << " BERHASIL DENGAN NOMINAL " << gopay << endl;
+                            cout << "TOP UP SALDO GOPAY KE TUJUAN " << nama << " BERHASIL DENGAN NOMINAL " << gopay << endl;
     		            saldo -= gopay;
     		            cout << "SISA SALDO ANDA\t :  " << saldo << endl;
     		            cout << "==================================================\n";
                     break;
                     case 2:
-			            cout << "MASUKAN NOMOR OVO ANDA\t: "; cin >> nama;
+			    cout << "MASUKAN NOMOR OVO ANDA\t: "; cin >> nama;
     		            cout << "MASUKAN NOMINAL TOPUP\t: "; cin >> ovo;
     		            cout << "==================================================\n";
-                        cout << "TOP UP SALDO OVO KE TUJUAN " << nama << " BERHASIL DENGAN NOMINAL " << ovo << endl;
+                            cout << "TOP UP SALDO OVO KE TUJUAN " << nama << " BERHASIL DENGAN NOMINAL " << ovo << endl;
     		            saldo -= ovo;
     		            cout << "SISA SALDO ANDA ADALAH " << saldo << endl;
     		            cout << "==================================================\n";
