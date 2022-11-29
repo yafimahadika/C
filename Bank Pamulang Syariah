@@ -1,0 +1,108 @@
+#include <iostream>
+#include <math.h>
+#include <string>
+using namespace std;
+int main()
+{
+	char nama[100];
+    int A, B, gopay, ovo, setor, rek, transfer, tarik, pin, saldo = 5000000;
+    saldo = 5000000;
+    cout << endl;
+    cout << " ________________________________________________ \n";
+    cout << "|                                                |\n";
+    cout << "|                                                |\n";
+    cout << "|============= BANK PAMULANG SYARIAH ============|\n";
+    cout << "|                                                |\n";
+    cout << "|________________________________________________|\n";
+    cout <<endl;
+    cout << "MASUKAN NAMA\t : ";
+    cin.getline(nama, sizeof(nama));
+    cout << "MASUKAN PIN\t : "; cin >> pin;
+    while (A != 6)
+	{
+    cout <<endl;
+    cout << " ________________________________________________\n";
+    cout << "|                                                |\n";
+    cout << "|========== MENU BANK PAMULANG SYARIAH ==========|\n";
+    cout << "|________________________________________________|\n";
+    cout << "|                        |                       |\n";
+    cout << "| 1. CEK SALDO           | 4. SETOR TUNAI        |\n";
+    cout << "|________________________|_______________________|\n";
+    cout << "|                        |                       |\n";
+    cout << "| 2. TARIK TUNAI         | 5. TOP UP E-WALLET    |\n";
+    cout << "|________________________|_______________________|\n";
+    cout << "|                        |                       |\n";
+    cout << "| 3. TRANSFER            | 6. KELUAR             |\n";
+    cout << "|________________________|_______________________|\n";
+
+    cout <<endl;
+    cout <<"MASUKAN PILIHAN\t: "; cin >>A;
+    cout << "==================================================\n";
+    switch (A){
+        case 1:
+            cout << "SISA SALDO ANDA\t\t: "<<saldo<<endl;
+            cout << "==================================================\n";
+        break;
+        case 2:
+            cout << "MASUKAN NOMINAL\t\t: "; cin >> tarik;
+    	    cout << "==================================================\n";
+    	    saldo -= tarik;
+    	    cout << "SILAHKAN AMBIL UANG ANDA\n";
+    	    cout << "SISA SALDO ANDA\t\t: " <<saldo<<endl;
+    	    cout << "==================================================\n";
+        break;
+        case 3:
+            cout << "MASUKAN NOMOR REKENING TUJUAN\t: "; cin >> rek;
+		    cout << "MASUKAN NOMINAL TRANSFER SALDO\t: "; cin >> transfer;
+		    cout << "==================================================\n";
+		    cout << "ANDA BERHASIL TRANSFER KE NOMOR REKENING " << rek <<" DENGAN NOMINAL "<<transfer<<endl;
+		    saldo -= transfer;
+		    cout << "SISA SALDO ANDA\t\t: " << saldo << endl;
+		    cout << "==================================================\n";
+        break;
+        case 4:
+            cout << "MASUKAN NOMINAL SETORAN ANDA\t: "; cin >> setor;
+		    cout << "==================================================\n";
+		    saldo += setor;
+		    cout << "SISA SALDO ANDA\t\t: " << saldo << endl;
+		    cout << "==================================================\n";
+        break;
+        case 5:
+            cout << " ________________________________________________\n";
+            cout << "|                                                |\n";
+            cout << "|================= MENU E-WALLET ================|\n";
+	        cout << "|________________________________________________|\n";
+            cout << "|                        |                       |\n";
+            cout << "| 1. TOP UP GOPAY        | 2. TOP UP OVO         |\n";
+            cout << "|________________________|_______________________|\n";
+    	    cout <<"MASSUKAN PILIHAN\t: "; cin >>B;
+                switch (B){
+                    case 1:
+    		            cout << "MASUKAN NOMOR GOPAY\t: "; cin >> nama;
+    		            cout << "MASUKAN NOMINAL TOPUP\t: "; cin >> gopay;
+    		            cout << "==================================================\n";
+                        cout << "TOP UP SALDO GOPAY KE TUJUAN " << nama << " BERHASIL DENGAN NOMINAL " << gopay << endl;
+    		            saldo -= gopay;
+    		            cout << "SISA SALDO ANDA\t :  " << saldo << endl;
+    		            cout << "==================================================\n";
+                    break;
+                    case 2:
+			            cout << "MASUKAN NOMOR OVO ANDA\t: "; cin >> nama;
+    		            cout << "MASUKAN NOMINAL TOPUP\t: "; cin >> ovo;
+    		            cout << "==================================================\n";
+                        cout << "TOP UP SALDO OVO KE TUJUAN " << nama << " BERHASIL DENGAN NOMINAL " << ovo << endl;
+    		            saldo -= ovo;
+    		            cout << "SISA SALDO ANDA ADALAH " << saldo << endl;
+    		            cout << "==================================================\n";
+                    break;
+		        }
+        break;
+        case 6:
+            cout << "TERIMA KASIH TELAH BERTRANSAKSI";
+        break;
+        default:
+            cout << "PILIHAN YANG ANDA MASUKAN SALAH, SILAHKAN COBA KEMBALI";
+
+    }
+    }
+}
