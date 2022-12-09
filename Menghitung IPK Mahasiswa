@@ -1,0 +1,90 @@
+#include<iostream>
+#include<iomanip>
+#include<math.h>
+#include<string>
+using namespace std;
+
+void infoNilaiGrade ()
+{
+    cout << "================================================\n";
+    cout << "==== PROGRAM MENGHITUNG NILAI IPK MAHASISWA ====\n";
+    cout << "================================================\n";
+    cout << "                INFO NILAI GRADE                \n";
+    cout << "================================================\n";
+    cout << "GRADE A\t\t= 4\n";
+    cout << "GRADE B\t\t= 3\n";
+    cout << "GRADE C\t\t= 2\n";
+    cout << "GRADE D\t\t= 1\n";
+    cout << "GRADE E\t\t= 0\n";
+    cout << "================================================\n";
+}
+
+void inputNilai ()
+{
+    int jumlahMatkul;
+    cout << "MASUKAN TOTAL MATKUL\t: ";
+    cin >> jumlahMatkul;
+    cout << "================================================\n";
+    string namaMatkul[jumlahMatkul], gradeMatkul[jumlahMatkul];
+    int nilaiSKS[jumlahMatkul], sksMatkul[jumlahMatkul];
+    float totalSks=0, totalNilai=0, ipk;
+    for (int i = 0;i < jumlahMatkul;i++){
+        cout << "MASUKAN NAMA MATAKULIAH\t: "; getline(cin, namaMatkul[i]); getline(cin, namaMatkul[i]);
+        cout << "MASUKAN GRADE\t\t: "; cin >> gradeMatkul[i];
+        cout << "MASUKAN JUMLAH SKS\t: "; cin >> sksMatkul[i];
+        cout << "================================================\n";
+    if (gradeMatkul[i] == "A"){
+        nilaiSKS[i] = 4 * sksMatkul[i];
+    }
+    else if (gradeMatkul[i] == "B"){
+        nilaiSKS[i] = 3 * sksMatkul[i];
+    }
+    else if (gradeMatkul[i] == "C"){
+        nilaiSKS[i] = 2 * sksMatkul[i];
+    }
+    else if (gradeMatkul[i] == "D"){
+        nilaiSKS[i] = 1 * sksMatkul[i];
+    }
+    else if (gradeMatkul[i] == "E"){
+        nilaiSKS[i] = 0 * sksMatkul[i];
+    }
+    cout<<"Total Nilai\t\t: "<<nilaiSKS[i]<<"\n";
+    cout << "================================================\n";
+    totalNilai += nilaiSKS[i];
+    totalSks += sksMatkul[i];
+    }
+    cout << endl;
+    cout<<"---------------------------------------------------\n";
+    cout<<"NO";
+    cout<<setw(19)<<"MATA KULIAH"<<"\t\t";
+    cout<<setw(4)<<"NILAI"<<"\t\t";
+    cout<<setw(4)<<"SKS\n";
+	cout<<"---------------------------------------------------\n";
+    for (int i = 0;i < jumlahMatkul; i++){
+        int k = i + 1;
+        cout<<k;
+        cout<<setw(20)<<namaMatkul[i]<<"\t\t";
+        cout<<setw(3)<<gradeMatkul[i];
+        cout<<setw(15)<<sksMatkul[i];
+        cout << endl;
+    }
+    cout<<"---------------------------------------------------\n";
+    ipk = totalNilai/totalSks;
+    cout << "TOTAL NILAI\t\t: " << totalNilai << endl;
+    cout << "TOTAL SKS\t\t: " << totalSks << endl;
+    cout << "TOTAL IPK\t\t: " << ipk << endl ;
+}
+
+int main ()
+{
+    char jawaban;
+    do {
+    infoNilaiGrade ();
+    inputNilai ();
+    cout << endl;
+    cout << "Apakah Anda Akan Menginput Kembali (y/t) ? ";
+    cin >> jawaban;
+    } while (jawaban == 'Y' || jawaban == 'y');
+    system("PAUSE");
+    return 0;
+}
