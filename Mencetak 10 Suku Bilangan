@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int main (){
+	int a = 1;
+	cout<<"===== MENGHITUNG DERET BILANGAN =====\n";
+	cout<<"=====================================\n";
+	cout<<" _____________________________________\n";
+	cout<<"|                                     |\n";
+	cout<<"|";
+	for (int i = 0; i < 10;i++){
+		cout<<a;
+		a *= 2;	
+		if (i < 9){
+			cout<<", ";
+		}
+	}
+	cout<<"|\n";
+	cout<<"|_____________________________________|";
+}
