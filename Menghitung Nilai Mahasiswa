@@ -1,0 +1,98 @@
+#include<iostream>
+#include<iomanip>
+#include<math.h>
+#include<string>
+using namespace std;
+int main()
+{
+    string mtklh;
+    int jmlmhs, sks;
+    char jawaban;
+    do{
+    cout << "=======================================================\n";
+    cout << "===== MENGHITUNG NILAI KELAS 01TPLE004 SEMESTER 1 =====\n";
+    cout << "=======================================================\n";
+    cout << "Masukan Jumlah Mahasiswa\t: ";
+    cin >> jmlmhs;
+    cout << "Masukan Nama Pelajaran\t\t: ";
+    getline(cin, mtklh);
+    getline(cin, mtklh);
+    cout << "Masukan Jumlah SKS\t\t: ";
+    cin >> sks;
+    cout << endl;
+
+    char grade[jmlmhs];
+    string nama[jmlmhs];
+    long long int nim[jmlmhs]; 
+    int jmlHdr[jmlmhs], kehadiran=14;
+    float nilaiUts[jmlmhs], nilaiUas[jmlmhs], nilaiTugas[jmlmhs], nilaiAngka[jmlmhs], nilaiKehadiran[jmlmhs];
+
+    for (int i = 0;i < jmlmhs; i++){
+        cout << "================ INPUT DATA MAHASISWA =================\n";
+        cout << "Masukan Nama\t\t\t: ";
+        getline(cin, nama[i]);
+        getline(cin, nama[i]);
+        cout << "Masukan NIM\t\t\t: ";
+        cin >> nim[i];
+        cout << "Masukan Total Kehadiran\t\t: ";
+        cin >> jmlHdr[i];
+        cout << "Masukan Nilai Tugas\t\t: ";
+        cin >> nilaiTugas[i];
+        cout << "Masukan Nilai UTS\t\t: ";
+        cin >> nilaiUts[i];
+        cout << "Masukan Nilai UAS\t\t: ";
+        cin >> nilaiUas[i];
+        cout << endl;
+        nilaiKehadiran[i]=(100.0/kehadiran)*jmlHdr[i];
+        nilaiAngka[i]=(nilaiKehadiran[i]*10/100.0) + (nilaiTugas[i]*20/100.0) + (nilaiUts[i]*30/100.0) + (nilaiUas[i]*40/100.0);
+
+    if(!jmlHdr[i] || !nilaiTugas[i] || !nilaiUts[i] || !nilaiUas[i]){
+		grade[i]='E';
+	}
+	else if(nilaiAngka[i] >= 80){
+		grade[i]='A';
+	}
+	else if(nilaiAngka[i] >= 70 && nilaiAngka[i] < 79){
+		grade[i]='B';
+	}
+	else if(nilaiAngka[i] >= 60 && nilaiAngka[i] < 70){
+		grade[i]='C';
+	}
+	else if(nilaiAngka[i] >= 50 && nilaiAngka[i] < 60){
+		grade[i]='D';
+	}
+	else if(nilaiAngka[i] < 50){
+		grade[i]='E';
+	}
+    }
+    
+    cout << "=======================================================\n";
+	cout << "Nama Mata Kuliah\t= "<<mtklh<<'\n';
+	cout << "SKS\t\t\t= "<<sks<<'\n';
+	cout<<"-------------------------------------------------------------------------------------------------------------------\n";
+    cout<<setw(12)<<"NIM";
+    cout<<setw(16)<<"NAMA";
+    cout<<setw(18)<<"KEHADIRAN";
+    cout<<setw(12)<<"TUGAS";
+    cout<<setw(12)<<"UTS";
+    cout<<setw(12)<<"UAS";
+    cout<<setw(12)<<"NILAI";
+    cout<<setw(12)<<"GRADE\n";
+	cout<<"-------------------------------------------------------------------------------------------------------------------\n";
+    for (int i = 0;i < jmlmhs; i++){
+        cout<<setw(16)<<nim[i];
+        cout<<setw(17)<<nama[i];
+        cout<<setw(9)<<jmlHdr[i];
+        cout<<setw(15)<<nilaiTugas[i];
+        cout<<setw(13)<<nilaiUts[i];
+        cout<<setw(12)<<nilaiUas[i];
+        cout<<setw(11)<<nilaiAngka[i];
+        cout<<setw(10)<<grade[i];
+        cout << endl;
+    }
+    cout<<"-------------------------------------------------------------------------------------------------------------------\n\n";
+    cout << "Apakah Anda Akan Mengisi Program Kembali (y/t) ? ";
+    cin >> jawaban;
+    } while (jawaban == 'y'||jawaban == 'Y');
+    system("PAUSE");
+}
