@@ -7,7 +7,7 @@ using namespace std;
 
 void luasPersegiPanjang (){
     double tinggi, lebar;
-    char jawaban;
+    
     cout << "--------------------------------------------\n";
     cout << "Masukan Lebar Persegi Panjang\t: ";
     cin >> lebar;
